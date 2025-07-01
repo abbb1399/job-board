@@ -48,8 +48,6 @@ export const clerkCreateUser = inngest.createFunction(
         updatedAt: new Date(userData.updated_at),
       });
 
-      console.log("qweqwe");
-
       return userData.id;
     });
 

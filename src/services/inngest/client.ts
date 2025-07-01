@@ -1,5 +1,6 @@
 import { DeletedObjectJSON, UserJSON } from "@clerk/nextjs/server";
-import { EventSchemas, Inngest } from "inngest";
+import { Inngest } from "inngest";
+import { EventSchemas } from "inngest";
 
 type ClerkWebhookData<T> = {
   data: {
@@ -16,6 +17,6 @@ type Events = {
 };
 
 export const inngest = new Inngest({
-  id: "job-board",
+  id: "job-board-wds",
   schemas: new EventSchemas().fromRecord<Events>(),
 });

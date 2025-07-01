@@ -45,9 +45,7 @@ export default function HomePage() {
             <SidebarFooter>
               <SidebarMenu>
                 <SidebarMenuItem>
-                  <SidebarMenuButton>
-                    <SidebarUserButton />
-                  </SidebarMenuButton>
+                  <SidebarUserButton />
                 </SidebarMenuItem>
               </SidebarMenu>
             </SidebarFooter>

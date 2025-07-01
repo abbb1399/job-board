@@ -10,10 +10,7 @@ export async function updateUser(
   id: string,
   user: Partial<typeof UserTable.$inferSelect>
 ) {
-  return await db
-    .update(UserTable)
-    .set(user)
-    .where(eq(UserTable.id, id));
+  return await db.update(UserTable).set(user).where(eq(UserTable.id, id));
 }
 
 export async function deleteUser(id: string) {
