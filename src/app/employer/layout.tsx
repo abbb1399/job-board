@@ -8,12 +8,26 @@ import {
 } from "@/components/ui/sidebar";
 import Link from "next/link";
 import { SidebarOrganizationButton } from "@/features/organizations/components/SidebarOrganizationButton";
+import { Suspense } from "react";
+import { getCurrentOrganization } from "@/services/clerk/lib/getCurrentAuth";
+import { redirect } from "next/navigation";
 
 export default function EmployerLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  return (
+    <Suspense>
+      <LayoutSuspense>{children}</LayoutSuspense>
+    </Suspense>
+  );
+}
+
+async function LayoutSuspense({ children }: { children: React.ReactNode }) {
+  const { orgId } = await getCurrentOrganization();
+  if (orgId == null) return redirect("/organizations/select");
+
   return (
     <AppSidebar
       content={
